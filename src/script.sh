@@ -58,7 +58,7 @@ fi
 # start node manager
         ./nodemanager -d
 		
-if [ $instance == 'yes']		
+if [ $instance == 'yes' ]		
 
 then
 
