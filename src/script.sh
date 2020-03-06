@@ -1,7 +1,7 @@
 # File : Script to install apigateway, cassandra, setup api manager and install api analyticsLicenseFilePath
 # Programmer : Altaf Hossain
 # Version : 2.0
-# Last Change Date : 11,Nov,2019
+# Last Change Date : 06,03,2020
 # Author : Altaf Hossain
 # Description : The Script helps to :- Install API gateway in unattended form, if required install & Start cassandra, Register HOST, Create group and instance, If require,  set up API manager & if require, Install Analytics
 # Update : Now we can add node that has admin capability although these node are not the first admin node in the topology, We have worked on cassandra now you don't need to add the "localhost" parameter that was required. Now the yaml is also updated with local cassandra node address as listen address and rpc_address and seed address is set as cassandra node which is the seed node of cluster. The name of the installation package is also set as the variable inside the installationDetails.txt file 
@@ -128,8 +128,15 @@ if [ $instance == 'yes' ]
 
 then
 
-
-
+	if [ $apimgmt == 'yes' ]
+	
+	then
+		
+		cd $dir/apigateway/samples/scripts
+		./run.sh $dir/apigateway/samples/scripts/cassandra/updateCassandraSettings.py -r $replicationfactor -H $cassandrahost -U $cass_user -P $cass_pass
+		
+	fi
+cd $dir/apigateway/posix/bin
 # created instance and group
         ./managedomain  --create_instance --name $instancename --group $group --username $username --password $password
 # start instance
