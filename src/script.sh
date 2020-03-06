@@ -41,7 +41,7 @@ then
 
 # domain registration takes place here keeping node as the admin
 
-        ./managedomain --initialize --nm_name $nm_name
+        ./managedomain --initialize --nm_name $nm_name --add_service
 
 fi
 
@@ -51,7 +51,7 @@ then
 
 # domain registration taked place here addressing the admin node
 
-                ./managedomain --add --nm_name $nm_name --anm_host $anmhost --anm_port $anmport --username $username --password $password
+                ./managedomain --add --nm_name $nm_name --anm_host $anmhost --anm_port $anmport --username $username --password $password --add_service
 
 fi
 
@@ -63,7 +63,7 @@ if [ $instance == 'yes' ]
 then
 
 # created instance and group
-        ./managedomain  --create_instance --name $instancename --group $group --username $username --password $password
+        ./managedomain  --create_instance --name $instancename --group $group --username $username --password $password --add_service
 # start instance
         ./startinstance -g $group -n $instancename -d
 
