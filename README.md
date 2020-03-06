@@ -12,3 +12,5 @@ The Good thing is that Script does every thing in VERBOSE so you could see all t
     - The Script is based on the general installation structure of the API gateway and can be used with any version i have tested it with 753 and 762.
     - It is lot faster then compared to manual installation.
 
+![Axwaylogo]( https://github.com/Axway-API-Management/Common/blob/master/img/AxwayLogoSmall.png ) 
+### Axway Team
